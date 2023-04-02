@@ -102,6 +102,14 @@ After that, also check if following lines in `move_base.launch` in `jackal_navig
 <rosparam file="$(find jackal_navigation)/params/map_nav_params/prohibition_areas.yaml" command="load" ns="global_costmap/costmap_prohibition_layer" />
 <rosparam file="$(find jackal_navigation)/params/map_nav_params/prohibition_areas.yaml" command="load" ns="local_costmap/costmap_prohibition_layer" />
 ```
+Then, add follow code to `global_costmap_params.yaml`:
+```
+plugins:
+- {name: static_layer, type: "costmap_2d::StaticLayer"}
+# - {name: obstacles_layer, type: "costmap_2d::ObstacleLayer"}
+- {name: inflater_layer, type: "costmap_2d::InflationLayer"}
+- {name: costmap_prohibition_layer, type: "costmap_prohibition_layer_namespace::CostmapProhibitionLayer"}
+```
 Close all terminals and start new one in the workspace
 ```bash
 source develop/setup.bash
