@@ -121,7 +121,7 @@ source develop/setup.bash
 roslaunch me5413_world navigation.launch
 ```
 Click the buttons of the bottom right panel in rviz and navigation to the specified pose
-![navigation](src/me5413_world/media/navigation.png)
+![navigation](src/me5413_world/media/navigation_inia.png)
 
 ![costmap](src/me5413_world/media/costmap.png)
 
