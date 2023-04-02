@@ -124,7 +124,19 @@ Click the buttons of the bottom right panel in rviz and navigation to the specif
 ![navigation](src/me5413_world/media/navigation_inia.png)
 
 ![costmap](src/me5413_world/media/nohitwall.png)
-
+### 3. Random start and end point
+If you  want to change the initial position of robot and set different goal pose, you should change follow code at `amcl.launch` which is define the load position ar rviz:
+```
+<param name="initial_pose_x" value="($ x position you want)" />
+<param name="initial_pose_y" value="($ y position you want)" />
+<param name="initial_pose_a" value="($ angle you want)" />
+```
+Then change corresponding code at `spawn_jackal.launch` which define the position at gazebo:
+```
+<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+	      args="-urdf -model jackal -param robot_description -x 0 -y 0 -z 1 -R 0 -P 0 -Y 0" />
+<!-- the value of parameter should same as `amcl.launch` -->
+```
 ## Get Support
 
 If you have any questions please feel free to open a pull-request
