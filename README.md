@@ -135,11 +135,6 @@ If you  want to change the initial position of robot and set different goal pose
 <param name="initial_pose_y" value="($ y position you want)" />
 <param name="initial_pose_a" value="($ angle you want)" />
 ```
-```
-<!-- <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/> -->
-<!-- <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" /> -->
-<param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
-```
 Then change corresponding code at `spawn_jackal.launch` which define the position at gazebo:
 ```
 <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
@@ -152,6 +147,11 @@ If you want to use other gloabl or local planner algorithm, you should adjust th
 <!-- <rosparam file="$(find jackal_navigation)/params/base_local_planner_params.yaml" command="load" /> -->
 <!-- <rosparam file="$(find jackal_navigation)/params/dwa_local_planner_params.yaml" command="load" /> -->
 <rosparam file="$(find jackal_navigation)/params/teb_local_planner_params.yaml" command="load" />
+```
+```
+<!-- <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/> -->
+<!-- <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" /> -->
+<param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
 ```
 Our repo gives three local plan algorithm to use, the default is `teb_local_planner`, if you want to use other, you just need to comment now algorithm and select which you want, but if you want to use external algorithm, you not only need to change this parameters, but also need to add parameter file like `teb_local_planner_params.yaml`.
 
