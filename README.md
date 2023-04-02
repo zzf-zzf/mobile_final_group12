@@ -141,6 +141,7 @@ Then change corresponding code at `spawn_jackal.launch` which define the positio
 	      args="-urdf -model jackal -param robot_description -x 0 -y 0 -z 1 -R 0 -P 0 -Y 0" />
 <!-- the value of parameter should same as `amcl.launch` -->
 ```
+![Random start](src/me5413_world/media/changeinia.png)
 ### 4. Change the navigation algorithm
 If you want to use other gloabl or local planner algorithm, you should adjust the following code at `move_base.launch`:
 ```
