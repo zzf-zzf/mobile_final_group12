@@ -60,14 +60,14 @@ rosrun pcl_ros pointcloud_to_pcd input:=/laser_cloud_surround
 ![pc_map](src/me5413_world/media/pc_map.png)
 To convert the pcl file to pgm format, run rosnode in `pcd2pgm` package after modify the path in `test.cpp`
 ```
-private_nh.param("file_directory", file_directory, std::string("/home/tommy/pcd/")); # the path to pcd file
+private_nh.param("file_directory", file_directory, std::string("/home/($ your_username)/pcd/")); # the path to pcd file
 ```
 ```
 private_nh.param("file_name", file_name, std::string("12673.944000000")); # the name of the pcd file
 ```
 Then build the workspace again and run the rosnode
 ```bash
-cd ~/My_project
+cd ~/mobile_final_group12
 catkin_make
 rosrun pcd2pgm pcd2topic
 ```
@@ -79,7 +79,7 @@ After transforming you can obtain the global map by 3D Lidar SLAM like below and
 
 ![map](src/me5413_world/media/map.png)
 ### 2. Navigation
-To begin with adding prohibited region in the map, find `prohibition_areas.yaml` in `My_project/src/jackal_navigation/params/map_nav_params/` and modify the following content in the file to the desired one
+To begin with adding prohibited region in the map, find `prohibition_areas.yaml` in `mobile_final_group12/src/jackal_navigation/params/map_nav_params/` and modify the following content in the file to the desired one
 ```bash
 prohibition_areas:
 
