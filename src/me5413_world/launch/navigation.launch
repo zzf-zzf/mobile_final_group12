@@ -8,9 +8,11 @@
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
   
   <!-- Launch the AMCL Localizer -->
+  <!-- 自适应蒙特卡洛 -->
   <include file="$(find jackal_navigation)/launch/include/amcl.launch" />
 
   <!-- Launch Move Base -->
+  <!-- 路径规划：全局+本地（避障） -->
   <include file="$(find jackal_navigation)/launch/include/move_base.launch" />
 
   <!-- Launch Rviz with our settings -->
