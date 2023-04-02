@@ -135,13 +135,18 @@ If you  want to change the initial position of robot and set different goal pose
 <param name="initial_pose_y" value="($ y position you want)" />
 <param name="initial_pose_a" value="($ angle you want)" />
 ```
+```
+<!-- <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/> -->
+<!-- <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" /> -->
+<param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+```
 Then change corresponding code at `spawn_jackal.launch` which define the position at gazebo:
 ```
 <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
 	      args="-urdf -model jackal -param robot_description -x 0 -y 0 -z 1 -R 0 -P 0 -Y 0" />
 <!-- the value of parameter should same as `amcl.launch` -->
 ```
-### 4. Change the algorithm
+### 4. Change the navigation algorithm
 If you want to use other gloabl or local planner algorithm, you should adjust the following code at `move_base.launch`:
 ```
 <!-- <rosparam file="$(find jackal_navigation)/params/base_local_planner_params.yaml" command="load" /> -->
@@ -149,6 +154,11 @@ If you want to use other gloabl or local planner algorithm, you should adjust th
 <rosparam file="$(find jackal_navigation)/params/teb_local_planner_params.yaml" command="load" />
 ```
 Our repo gives three local plan algorithm to use, the default is `teb_local_planner`, if you want to use other, you just need to comment now algorithm and select which you want, but if you want to use external algorithm, you not only need to change this parameters, but also need to add parameter file like `teb_local_planner_params.yaml`.
+
+For global algorithm, the default is good, but if you prefer other algorithm, you can change following code at `move_base.launch` and add configuration file：
+```
+<param name="base_global_planner" type="string" value="navfn/NavfnROS" />
+```
 
 ## Get Support
 
