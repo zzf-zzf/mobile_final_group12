@@ -25,6 +25,7 @@ cd
 git clone https://github.com/zzf-zzf/mobile_final_group12.git
 cd mobile_final_group12
 
+
 # Install all dependencies
 rosdep install --from-paths src --ignore-src -r -y
 
@@ -122,4 +123,8 @@ If you have any questions please feel free to open a pull-request
 
 ## License
 
+<<<<<<< HEAD
 The [My_Project](https://github.com/Tomshine123/My_project) is released under the [MIT License](https://github.com/Tomshine123/My_project/blob/main/LICENSE)
+=======
+The [My_Project](https://github.com/Tomshine123/My_project) is released under the [MIT License](https://github.com/Tomshine123/My_project/blob/main/LICENSE)
+>>>>>>> e748e8881a1e363e5125a5fa0177de690d6ff446
