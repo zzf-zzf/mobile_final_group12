@@ -10,6 +10,10 @@ This repository is the implementation for ME5413 Autonomous Mobile Robotics Fina
 ## Dependencies
 The requirement can be found in https://github.com/NUS-Advanced-Robotics-Centre/ME5413_Final_Project and also an extra ros package
   * `pcl_ros` is used for generating pcl file from rostopic
+  * `teb_local_planner` is used for local path plan, you need use the following command to install this package:
+  ```bash
+  sudo apt-get install ros-noetic-teb-local-planner
+  ```
 ## Installation
 This repo is a ros workspace, containing several rospkgs:
 * `ALOAM` is SLAM algorithm package used for 3D mapping
@@ -137,6 +141,7 @@ Then change corresponding code at `spawn_jackal.launch` which define the positio
 	      args="-urdf -model jackal -param robot_description -x 0 -y 0 -z 1 -R 0 -P 0 -Y 0" />
 <!-- the value of parameter should same as `amcl.launch` -->
 ```
+
 ## Get Support
 
 If you have any questions please feel free to open a pull-request
