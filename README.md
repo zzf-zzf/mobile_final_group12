@@ -141,6 +141,14 @@ Then change corresponding code at `spawn_jackal.launch` which define the positio
 	      args="-urdf -model jackal -param robot_description -x 0 -y 0 -z 1 -R 0 -P 0 -Y 0" />
 <!-- the value of parameter should same as `amcl.launch` -->
 ```
+### 4. Change the algorithm
+If you want to use other gloabl or local planner algorithm, you should adjust the following code at `move_base.launch`:
+```
+<!-- <rosparam file="$(find jackal_navigation)/params/base_local_planner_params.yaml" command="load" /> -->
+<!-- <rosparam file="$(find jackal_navigation)/params/dwa_local_planner_params.yaml" command="load" /> -->
+<rosparam file="$(find jackal_navigation)/params/teb_local_planner_params.yaml" command="load" />
+```
+Our repo gives three local plan algorithm to use, the default is `teb_local_planner`, if you want to use other, you just need to comment now algorithm and select which you want, but if you want to use external algorithm, you not only need to change this parameters, but also need to add parameter file like `teb_local_planner_params.yaml`.
 
 ## Get Support
 
