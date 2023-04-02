@@ -13,3 +13,22 @@ oscillation_distance: 0.2
 recovery_behavior_enabled: true
 clearing_rotation_allowed: true
 
+recovery_behavior_enabled: true
+clearing_rotation_allowed: true
+
+recovery_behaviors:
+  - name: 'conservative_reset'
+    type: 'clear_costmap_recovery/ClearCostmapRecovery'
+  #- name: 'aggressive_reset'
+  #  type: 'clear_costmap_recovery/ClearCostmapRecovery'
+  - name: 'clearing_rotation'
+    type: 'rotate_recovery/RotateRecovery'
+  #- name: 'move_slow_and_clear'
+    #type: 'move_slow_and_clear/MoveSlowAndClear'
+
+move_slow_and_clear:
+  clearing_distance: 0.5
+  limited_trans_speed: 0.1
+  limited_rot_speed: 0.4
+  limited_distance: 0.3
+
